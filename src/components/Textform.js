@@ -102,6 +102,7 @@ export default function Textform(props) {
         <p> Sentence Counter :- {text.split(".").length}</p>
         <h2>Preview</h2>
         <p>{text}</p>
+        <div>Abc</div>
 
 
       </div>
