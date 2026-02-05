@@ -16,6 +16,12 @@ export default function Textform(props) {
     setText(newWord);
   };
 
+  const handleCopy = ()=>{
+    const txtCopy = document.getElementById('myBox');
+    txtCopy.select();
+    navigator.clipboard.writeText(txtCopy.value);
+  }
+
   const removespace = () =>{
     const newWord = text.trim();
     setText(newWord);
@@ -29,6 +35,11 @@ export default function Textform(props) {
   const handleOnChange = (event) => {
     setText(event.target.value); //targetting the value of text and with the help of this function able to change the value on state value
   };
+
+  const handleRemExtSpace = ()=>{
+    const newText = text.split(/[  ]+/);
+    setText(newText.join(" "));
+  }
 
   const [text, setText] = useState(""); //State
   //text = "ABC";//Wrong Way to set the text
@@ -87,6 +98,23 @@ export default function Textform(props) {
         >
           First Letter Capital
         </button>
+
+        <button
+          type="submit"
+          className="btn btn-primary mx-2"
+          onClick={handleCopy}
+        >
+          Copy Text
+        </button>
+
+        <button
+          type="submit"
+          className="btn btn-primary mx-2"
+          onClick={handleRemExtSpace}
+        >
+          Remove Extra Space
+        </button>
+
 
         
 
