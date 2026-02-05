@@ -47,8 +47,8 @@ export default function Textform(props) {
 
   return (
     <>
-      <div className="container">
-        <h1>{props.heading}</h1>
+      <div className="container" style={{color: props.mode==='dark'?'white':'#042743'}}>
+        <h1 style={{fontWeight:800}} className="mb-3 mt-3">{props.heading}</h1>
 
         <div className="mb-3">
           <textarea
@@ -57,8 +57,10 @@ export default function Textform(props) {
             onChange={handleOnChange}
             id="myBox"
             rows="8"
+            style={{backgroundColor:props.mode==='dark'?'#042743':'white', color:props.mode === 'dark'?'white':'black'}}
           ></textarea>
         </div>
+        <div className="mb-5"> 
         <button
           type="submit"
           className="btn btn-primary mx-2"
@@ -114,21 +116,20 @@ export default function Textform(props) {
         >
           Remove Extra Space
         </button>
-
-
-        
+        </div>
+ 
 
         
 
 
       </div>
 
-      <div className="container">
-        <h1>Your Text Summary</h1>
-        <p>{text.split(" ").length} words and {text.length} characters</p>
+      <div className="container" style={{color: props.mode==='dark'?'white':'#042743'}}>
+        <h2 style={{fontWeight:800}}>Your Text Summary</h2>
+        <p>Words :- {text.split(" ").length}  and Characters :- {text.length} </p>
         <p>{0.008*text.split(" ").length} Minutes Read</p>
         <p> Sentence Counter :- {text.split(".").length}</p>
-        <h2>Preview</h2>
+        <h3 style={{fontWeight:800}}>Preview</h3>
         <p>{text}</p>
         <div>Abc</div>
 
