@@ -16,22 +16,26 @@ export default function Textform(props) {
   const cleartext = () => {
     const newWord = "";
     setText(newWord);
+    props.showAlert("Text Clear", "success")
   };
 
   const handleCopy = ()=>{
     const txtCopy = document.getElementById('myBox');
     txtCopy.select();
     navigator.clipboard.writeText(txtCopy.value);
+    props.showAlert("Text Copied to Clipboard","success")
   }
 
   const removespace = () =>{
     const newWord = text.trim();
     setText(newWord);
+    props.showAlert("Removed space from front", "success")
   }
 
   const makefirstlettercapital = () =>{
     const newword = text.charAt(0).toUpperCase() + text.slice(1);
     setText(newword);
+    props.showAlert("First Letter Capital", "success")
   }
 
   const handleOnChange = (event) => {
@@ -41,6 +45,7 @@ export default function Textform(props) {
   const handleRemExtSpace = ()=>{
     const newText = text.split(/[  ]+/);
     setText(newText.join(" "));
+    props.showAlert("Removed Extra Space", "success")
   }
 
   const [text, setText] = useState(""); //State
