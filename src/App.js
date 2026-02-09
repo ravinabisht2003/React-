@@ -39,13 +39,26 @@ function App() {
     }
   };
 
+ 
+
+  const toggleGreen = ()=>{
+    if(mode === 'light'){
+      setMode('green');
+      document.body.style.backgroundColor = '#086433'
+    }
+    else{
+      setMode('light')
+      document.body.style.backgroundColor = 'white'
+    }
+  }
+
 
 
 
   return (
 
     <>
-     <Navbar title="Abc" aboutTitle="AboutUs" mode={mode} toggleMode ={toggleMode} />
+     <Navbar title="Abc" aboutTitle="AboutUs" mode={mode} toggleMode ={toggleMode} toggleGreen = {toggleGreen}/>
      <Alert alert={alert}/>
 
      <Textform heading = "Heading" mode={mode} showAlert={showAlert}/>
