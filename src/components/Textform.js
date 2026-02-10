@@ -1,5 +1,23 @@
 import React, { useState } from "react";
 
+
+
+  const getButtonColor = (bgColor) => {
+  switch (bgColor) {
+    case 'primary':
+      return 'light';
+    case 'danger':
+      return 'light';
+    case 'success':
+      return 'dark';
+    case 'warning':
+      return 'dark';
+    default:
+      return 'primary';
+  }
+};
+
+
 export default function Textform(props) {
   const convertintouppercase = () => {
     const newWord = text.toUpperCase();
@@ -76,7 +94,7 @@ function countWordsWithoutSpaces(text) {
         <div className="mb-5"> 
         <button
           type="submit"
-          className="btn btn-primary mx-2"
+          className={`btn btn-primary mx-2`}
           onClick={convertintouppercase}
         >
           Convert to uppercase
@@ -139,8 +157,8 @@ function countWordsWithoutSpaces(text) {
 
       <div className="container" style={{color: props.mode==='dark'?'white':'#042743'}}>
         <h2 style={{fontWeight:800}}>Your Text Summary</h2>
-        <p>Words :- {countWordsWithoutSpaces(text)}</p>
-          {/* {text.split(" ").length > 0}  and Characters :- {text.length} </p> */}
+        <p>Words :- {countWordsWithoutSpaces(text)} and Characters :- {text.length}</p>
+          {/* {text.split(" ").length}  and Characters :- {text.length} </p> */}
         <p>{0.008*text.split(" ").length} Minutes Read</p>
         <p> Sentence Counter :- {text.split(".").length}</p>
         <h3 style={{fontWeight:800}}>Preview</h3>

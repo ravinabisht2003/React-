@@ -27,8 +27,19 @@ function App() {
 
   const [mode, setMode] = useState('light');
 
-  const toggleMode = ()=>{
-    if (mode === 'light'){
+  const removeClassColor = ()=>{
+    document.body.classList.remove('bg-primary');
+    document.body.classList.remove('bg-danger');
+    document.body.classList.remove('bg-success');
+    document.body.classList.remove('bg-warning');
+  }
+
+  const toggleMode = (cls)=>{
+    removeClassColor();
+    if(cls=== 'primary' || cls === 'danger' || cls === 'success' || cls === 'warning'){
+     document.body.classList.add(`bg-${cls}`);
+     
+    }else if (mode === 'light'){
       setMode('dark');
       document.body.style.backgroundColor = '#042743'
       showAlert("Dark Mode Enable", "success");
@@ -58,7 +69,7 @@ function App() {
   return (
 
     <>
-     <Navbar title="Abc" aboutTitle="AboutUs" mode={mode} toggleMode ={toggleMode} toggleGreen = {toggleGreen}/>
+     <Navbar title="Abc" aboutTitle="AboutUs" mode={mode} toggleMode ={toggleMode} />
      <Alert alert={alert}/>
 
      <Textform heading = "Heading" mode={mode} showAlert={showAlert}/>
