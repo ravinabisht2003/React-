@@ -49,8 +49,24 @@ export default function Textform(props) {
   }
 
   const [text, setText] = useState(""); //State
-  //text = "ABC";//Wrong Way to set the text
-  // setText("Heading Two"); //Right way to set the text
+ 
+ 
+function countWordsWithoutSpaces(text) {
+  
+  const words = text.split(/\s+/);
+
+
+  const filteredWords = words.filter(word => word.length > 0);
+
+  
+  return filteredWords.length;
+}
+
+
+
+
+
+
 
   return (
     <>
@@ -133,7 +149,8 @@ export default function Textform(props) {
 
       <div className="container" style={{color: props.mode==='dark'?'white':'#042743'}}>
         <h2 style={{fontWeight:800}}>Your Text Summary</h2>
-        <p>Words :- {text.split(" ").length}  and Characters :- {text.length} </p>
+        <p>Words :- {countWordsWithoutSpaces(text)}</p>
+          {/* {text.split(" ").length > 0}  and Characters :- {text.length} </p> */}
         <p>{0.008*text.split(" ").length} Minutes Read</p>
         <p> Sentence Counter :- {text.split(".").length}</p>
         <h3 style={{fontWeight:800}}>Preview</h3>
