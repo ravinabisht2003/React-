@@ -52,21 +52,11 @@ export default function Textform(props) {
  
  
 function countWordsWithoutSpaces(text) {
-  
+
   const words = text.split(/\s+/);
-
-
   const filteredWords = words.filter(word => word.length > 0);
-
-  
   return filteredWords.length;
 }
-
-
-
-
-
-
 
   return (
     <>
