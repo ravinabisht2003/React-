@@ -94,7 +94,11 @@ function countWordsWithoutSpaces(text) {
         <div className="mb-5"> 
         <button
           type="submit"
-          className={`btn btn-primary mx-2`}
+          className={`btn ${
+    ['primary', 'danger', 'success', 'warning'].includes(props.bgColor)
+      ? 'btn-light text-dark'
+      : 'btn-primary'
+  } mx-2`}
           onClick={convertintouppercase}
         >
           Convert to uppercase
