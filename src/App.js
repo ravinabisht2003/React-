@@ -101,10 +101,10 @@ const toggleMode = (cls) => {
     return;
   }
 
-  // If switching light/dark mode
+  
   setTheme(prev => ({
     ...prev,
-    bg: ''   // 🔥 RESET COLOR HERE
+    bg: ''   
   }));
 
   if (mode === 'light') {
